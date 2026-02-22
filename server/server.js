@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import pg from "pg";
+// import { useEffect } from "react";
 
 const app = express();
 dotenv.config();
@@ -77,6 +78,30 @@ console.log("Well done artist route hit")
 }
 });
 
+// app.get('/genres', async (req, res) => {
+//     try {
+//         const result = await db.query(`
+//             SELECT genres FROM genres
+//             ORDER BY genres;
+//             `);
+
+//             res.json(result.rows.map(row => row.genres));
+
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).json({ error: "server error" });
+//     }
+// });
+
+// const [genres, setGenres] = useState([]);
+
+// useEffect(() => {
+//     const fetchGenres = async () => {
+//         const res = await fetch("http://localhost:7777/");
+//         const data = await res.json();
+//         setGenres(data);
+//     }
+// })
 
 app.listen(7777, () => {
     console.log("server running on http://localhost:7777/")

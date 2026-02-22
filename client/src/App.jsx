@@ -22,6 +22,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<p>Welcome to the home of all of you undiscovered favourites</p>} />
         <Route path='/artists' element={<Artists />} />
+        <Route path="/genres/:genreDefine" element={<Artists />} />
       </Routes>
 
 </div>

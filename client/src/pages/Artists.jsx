@@ -1,10 +1,12 @@
 import ProfileCard from '../components/ProfileCard';
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 
 export default function Artists() {
   
   const [artists, setArtists] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
   const { genreDefine } = useParams();
 
@@ -31,40 +33,25 @@ export default function Artists() {
       fetchArtists();
   }, [selectedGenre, genreDefine]);
 
-//     const filteredArtists = selectedGenre
-//   ? artists.filter(artist => 
-//     artist.genres.includes(selectedGenre)
-//   )
-// : artists;
 
-// return (
-//   <div>
-//     {filteredArtists.map(artist => (
-//       <div key={artist.id}>
-//         <h2>{artist.name}</h2>
-//         </div>
-//     ))}
-//   </div>
-// );
-// }
-
-  // useEffect(() => {
-  //   async function fetchArtists() {
-  //     try{      
-  //       const res = await fetch(`http://localhost:7777/artists`);
-  //       const data = await res.json();
-  //       console.log("Fetched:", data);
-  //       setArtists(data);
-  //   } catch (err) {
-  //       console.error("Error fetching artists:", err);
-  //     }
-  //   }
-  //     fetchArtists();
-  // }, []);
+  useEffect(() => {
+    const fetchGenres = async () => {
+      try {
+    const res = await fetch("http://localhost:7777/genres");
+    const genres = await res.json();
+          setGenres(genres);
+    } catch (err) {
+        console.error("Error fetching genres:", err);
+      }
+      };
+      fetchGenres();
+    }, []);
 
   return (
+
     <div>
       <h1>Discover...</h1>
+
     <select onChange={(e) => setSelectedGenre(e.target.value)}>
       <option value="">All</option>
       <option value="Industrial">Industrial</option>
@@ -77,28 +64,50 @@ export default function Artists() {
       <option value="Chill">Chill</option>
     </select>
 
-      {artists.length === 0 ? (
-        <p>loading...</p>
-      ) : (
-artists.map(artist => (
-  <ProfileCard key={artist.id} artist={artist} />
-))
 
-      )}
+<div className="genre-buttons">
+  {genres.slice(0, 5).map((g) => (
+    <Link
+      key={g.id}
+      to={`/genres/${encodeURIComponent(g.genres)}`}
+    >
+      <button className="genre-btn">
+        {g.genres}
+      </button>
+    </Link>
+  ))}
+
+  <Link to="/genres">
+    <button className="genre-btn see-more">
+      See More →
+    </button>
+  </Link>
+</div>
+
+
+    {artists.length === 0 ? (
+      <p>loading...</p>
+    ) : (
+      artists.map(artist => (
+        <ProfileCard key={artist.id} artist={artist} />
+      ))
+  )}
+
+
+      <div className="genre-buttons">
+
+        {genres.map((g) => (
+        <Link
+          key={g.id}
+          to={`/genres/${g.genres}`}
+          className="genre-btn"
+        >
+          {g.genres}
+        </Link>
+  ))}
+
+
+</div>
     </div>
   );
 }
-
-
-
-//   return (
-//     <div>
-//       <h1>All Artists</h1>
-//       {animals.lenght > 0 ? artists.map(animal => (
-//         ArtistCard name={artist.name} image={animal.genre}
-//       ))) => (
-//         <div key={artist.id}>{artist.name}</div>
-//       ))}
-//     </div>
-//   );
-// };

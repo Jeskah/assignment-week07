@@ -2,12 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import pg from "pg";
-// import { useEffect } from "react";
 
 const app = express();
 dotenv.config();
 
-// console.log('SUPABASE URL:', process.env.SUPABASE_URL);
 
 app.use(express.json());
 app.use(cors());
@@ -21,17 +19,6 @@ app.get("/", (req, res) => {
     console.log("Server is running")
     res.status(200).json({message: "Welcome to the server, we are running"});
 });
-
-// app.get("/artists", async (req, res) => {
-// console.log("Well done artist route hit")
-//     try {
-//             const artists = (await db.query(`select * from artists`)).rows;
-//         res.json(artists);
-// }   catch {
-//     console.error(error)
-//             res.send(`ERROR ERROR ERROR`);
-//     }
-// });
 
 
 app.get('/artists', async (req, res) => {
@@ -65,7 +52,7 @@ console.log("Well done artist route hit")
             }
 
             query += `
-            GROUP BY artists.id
+            GROUP BY artists.id, artists.name, artists.bio, artists.year, artists.rank
             ORDER BY artists.id;
             `;
 
@@ -78,30 +65,28 @@ console.log("Well done artist route hit")
 }
 });
 
+app.get("/genres", async (req, res) => {
+    try {
+        const result = await db.query(`
+            SELECT id, genres
+            FROM genres
+            ORDER BY genres;
+            `);
+            res.json(result.rows);
+    } catch (err) {
+        console.error("Genre Error:", err);
+        res.status(500).json({ error: "server error fetching genres"});
+    }
+});
 // app.get('/genres', async (req, res) => {
 //     try {
-//         const result = await db.query(`
-//             SELECT genres FROM genres
-//             ORDER BY genres;
-//             `);
-
-//             res.json(result.rows.map(row => row.genres));
-
+//         const result = await db.query(`SELECT * FROM genres ORDER BY genres`);
+//         res.json(result.rows);
 //     } catch (err) {
 //         console.error(err);
-//         res.status(500).json({ error: "server error" });
+//         res.status(500).json({ error: 'Server error fetching genres'});
 //     }
-// });
-
-// const [genres, setGenres] = useState([]);
-
-// useEffect(() => {
-//     const fetchGenres = async () => {
-//         const res = await fetch("http://localhost:7777/");
-//         const data = await res.json();
-//         setGenres(data);
-//     }
-// })
+//     });
 
 app.listen(7777, () => {
     console.log("server running on http://localhost:7777/")

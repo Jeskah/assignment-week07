@@ -1,0 +1,27 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+export default function ArtistPage() {
+    const { id } = useParams();
+    const [artist, setArtist] = useState(null);
+
+    useEffect(() => {
+    console.log("ID PARAM:", id);
+
+        fetch(`http://localhost:7777/artists/${id}`)
+        .then(res => res.json())
+        .then(data => setArtist(data))
+        .catch(err => console.error(err));
+    }, [id]);
+
+    if (!artist) return <p>Loading Artist...</p>;
+
+    return (
+        <div>
+            <h1>{artist.name}</h1>
+            <p>{artist.bio}</p>
+            <p>{artist.year}</p>
+            <p>{artist.rank}</p>
+        </div>
+    );
+}

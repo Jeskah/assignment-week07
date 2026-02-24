@@ -1,6 +1,16 @@
+import { Link } from "react-router-dom"
+
+
+
+
 export default function ProfileCard({ artist }) {
     return (
-        <div style={{
+        <Link
+            
+        to={`/artists/${artist.id}`}    
+        style={{
+            textDecoration: "none",
+            color: "inherit",
             border: "1px solid black",
             padding: "16px",
             margin: "12px",
@@ -16,6 +26,7 @@ export default function ProfileCard({ artist }) {
                 <span key={index}>{genre}</span>
             ))}
         </div>
-        </div>
+
+        </Link>
     );
 }

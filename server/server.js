@@ -78,6 +78,17 @@ app.get("/genres", async (req, res) => {
         res.status(500).json({ error: "server error fetching genres"});
     }
 });
+
+app.get("/artists/:id", async (req, res) => {
+    const { id } = req.params;
+
+    const result = await db.query(
+        "SELECT * FROM artists WHERE id = $1",
+        [id]
+    );
+
+    res.json(result.rows[0]);
+});
 // app.get('/genres', async (req, res) => {
 //     try {
 //         const result = await db.query(`SELECT * FROM genres ORDER BY genres`);

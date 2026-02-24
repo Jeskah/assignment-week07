@@ -104,6 +104,7 @@ export default function Artists() {
         >
           {g.genres}
         </Link>
+        
   ))}
 
 

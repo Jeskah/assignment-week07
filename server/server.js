@@ -89,15 +89,44 @@ app.get("/artists/:id", async (req, res) => {
 
     res.json(result.rows[0]);
 });
-// app.get('/genres', async (req, res) => {
-//     try {
-//         const result = await db.query(`SELECT * FROM genres ORDER BY genres`);
-//         res.json(result.rows);
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).json({ error: 'Server error fetching genres'});
-//     }
-//     });
+
+app.get("/artists/:id/messages", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const result = await db.query(
+            `SELECT messages.*, braggers.username
+            FROM messages
+            JOIN braggers ON messages.bragger_id = braggers.id
+            WHERE messages.artist_id = $1
+            ORDER BY messages.created_at ASC`,
+            [id]
+        );
+
+        res.json(result.rows);
+    } catch (err) {
+        res.status(500).json({error: "Can't fetch what they're bragging about..."})
+    }
+});
+
+app.post("artist/:id/messages", async (req, res) => {
+    const { id } = req.params;
+    const { username, content } = req.body;
+
+    try {
+        const result = await db.query(
+        `INSERT INTO messages (artist_id, username, content)
+        VALUES ($1, $2, $3)
+        RETURNING *`,
+        [id, username, content]
+        );
+
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "couldn't post brag"});
+    }
+})
 
 app.listen(7777, () => {
     console.log("server running on http://localhost:7777/")

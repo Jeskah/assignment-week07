@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import BragBoard from "../components/BragBoard";
 
 export default function ArtistPage() {
+
     const { id } = useParams();
     const [artist, setArtist] = useState(null);
 
@@ -17,11 +19,16 @@ export default function ArtistPage() {
     if (!artist) return <p>Loading Artist...</p>;
 
     return (
+
+        
         <div>
             <h1>{artist.name}</h1>
             <p>{artist.bio}</p>
             <p>{artist.year}</p>
             <p>{artist.rank}</p>
+
+            <BragBoard artistId={id} />
         </div>
+
     );
 }

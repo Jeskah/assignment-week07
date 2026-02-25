@@ -4,6 +4,7 @@ import Genres from "./pages/Genres";
 import ArtistPage from "./pages/ArtistPage";
 
 export default function App() {
+
   return (
 <div>
 

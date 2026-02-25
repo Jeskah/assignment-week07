@@ -13,7 +13,7 @@ export default function Artists() {
   useEffect(() => {
     const fetchArtists = async () => {
       try {      
-        let url = "http://localhost:7777/artists";
+        let url = "https://brag-server.onrender.com/artists";
         let chosenGenre = genreDefine || selectedGenre;
         if (chosenGenre) {
           url += `?genre=${chosenGenre}`;
@@ -37,7 +37,7 @@ export default function Artists() {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-    const res = await fetch("http://localhost:7777/genres");
+    const res = await fetch("https://brag-server.onrender.com/genres");
     const genres = await res.json();
           setGenres(genres);
     } catch (err) {

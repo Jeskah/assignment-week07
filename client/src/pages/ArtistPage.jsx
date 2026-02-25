@@ -10,7 +10,7 @@ export default function ArtistPage() {
     useEffect(() => {
     console.log("ID PARAM:", id);
 
-        fetch(`http://localhost:7777/artists/${id}`)
+        fetch(`https://brag-server.onrender.com/artists/${id}`)
         .then(res => res.json())
         .then(data => setArtist(data))
         .catch(err => console.error(err));

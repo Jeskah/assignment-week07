@@ -6,7 +6,7 @@ export default function BragBoard({ artistId }) {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        fetch(`http://localhost:7777/artists/${artistId}/messages`)
+        fetch(`https://brag-server.onrender.com/artists/${artistId}/messages`)
         .then(res => res.json())
         .then(data => setMessages(data))
         .catch(err => console.error(err));
@@ -16,7 +16,7 @@ export default function BragBoard({ artistId }) {
         e.preventDefault();
 
         const response = await fetch(
-            `http://localhost:7777/artists/${artistId}/messages`,
+            `https://brag-server.onrender.com/${artistId}/messages`,
             {
                 method: "POST",
                 headers: {

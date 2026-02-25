@@ -10,7 +10,7 @@ export default function App() {
 {/* GLOBAL */}
 
   <h1>
-    THIS IS MY MUSIC APP
+    BRAG!
   </h1>
 
   <nav>

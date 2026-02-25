@@ -95,7 +95,11 @@ app.get("/artists/:id/messages", async (req, res) => {
 
     try {
         const result = await db.query(
-            `SELECT messages.*, braggers.username
+            `SELECT 
+                messages.id, 
+                messages.content,
+                messages.created_at,
+                braggers.username
             FROM messages
             JOIN braggers ON messages.bragger_id = braggers.id
             WHERE messages.artist_id = $1
@@ -109,16 +113,16 @@ app.get("/artists/:id/messages", async (req, res) => {
     }
 });
 
-app.post("artist/:id/messages", async (req, res) => {
+app.post("/artists/:id/messages", async (req, res) => {
     const { id } = req.params;
-    const { username, content } = req.body;
+    const { bragger_id, content } = req.body;
 
     try {
         const result = await db.query(
-        `INSERT INTO messages (artist_id, username, content)
+        `INSERT INTO messages (artist_id, bragger_id, content)
         VALUES ($1, $2, $3)
         RETURNING *`,
-        [id, username, content]
+        [id, bragger_id, content]
         );
 
         res.status(201).json(result.rows[0]);

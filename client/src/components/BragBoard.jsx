@@ -38,7 +38,7 @@ export default function BragBoard({ artistId }) {
     
     return (
         <div>
-            <h2>Post, Boast and Brag!</h2>
+            <h2>Post, Boast & Brag!</h2>
             <h6>community feed</h6>
 
             <form onSubmit={handleSubmit}>

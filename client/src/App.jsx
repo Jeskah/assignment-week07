@@ -12,7 +12,6 @@ export default function App() {
 
   <h1>
     BRAG!
-    We just want it autodeploying and refreshing sad face.
   </h1>
 
   <nav>

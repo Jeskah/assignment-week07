@@ -3,10 +3,10 @@ import dotenv from "dotenv";
 import cors from "cors";
 import pg from "pg";
 
-// const path = require('path');
-const app = express();
+const app = express().
 dotenv.config();
 
+import path from 'path';
 
 app.use(express.json());
 app.use(cors());
@@ -131,6 +131,16 @@ app.post("/artists/:id/messages", async (req, res) => {
         console.error(err);
         res.status(500).json({ error: "couldn't post brag"});
     }
+
+    // Serve static client files
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+// Catch-all: send index.html for React Router
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/dist/index.html'));
+});
+
+
 })
 
 // const path = require('path'); // at top if not already

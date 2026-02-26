@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import pg from "pg";
 
-
+// const path = require('path');
 const app = express();
 dotenv.config();
 
@@ -133,15 +133,15 @@ app.post("/artists/:id/messages", async (req, res) => {
     }
 })
 
-const path = require('path'); // at top if not already
+// const path = require('path'); // at top if not already
 
-// Serve React build
-app.use(express.static(path.join(__dirname, 'client-build')));
+// // Serve React build
+// app.use(express.static(path.join(__dirname, 'client-build')));
 
-// Fallback: send index.html for all unknown routes (so React Router works)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client-build', 'index.html'));
-});
+// // Fallback: send index.html for all unknown routes (so React Router works)
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'client-build', 'index.html'));
+// });
 
 app.listen(7777, () => {
     console.log("server running on http://localhost:7777/")

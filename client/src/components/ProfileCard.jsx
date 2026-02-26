@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom"
 
-
-
-
 export default function ProfileCard({ artist }) {
     return (
         <Link

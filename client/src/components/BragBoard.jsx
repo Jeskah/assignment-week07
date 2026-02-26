@@ -16,7 +16,7 @@ export default function BragBoard({ artistId }) {
         e.preventDefault();
 
         const response = await fetch(
-            `https://brag-server.onrender.com/${artistId}/messages`,
+            `https://brag-server.onrender.com${artistId}/messages`,
             {
                 method: "POST",
                 headers: {

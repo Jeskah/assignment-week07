@@ -2,6 +2,7 @@ import ProfileCard from '../components/ProfileCard';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import BASE_URL from '../config';
+import "./artists.css";
 
 
 export default function Artists() {
@@ -38,6 +39,7 @@ export default function Artists() {
         console.error("Error fetching artists:", err);
       }
     }
+    
       fetchArtists();
   }, [selectedGenre, genreDefine]);
 
@@ -56,7 +58,6 @@ export default function Artists() {
     }, []);
 
   return (
-
     <div>
       <h1>Discover...</h1>
 
@@ -92,7 +93,7 @@ export default function Artists() {
   </Link>
 </div>
 
-
+<div className='all-artists'>
     {artists.length === 0 ? (
       <p>loading...</p>
     ) : (
@@ -102,7 +103,7 @@ export default function Artists() {
   )}
 
 
-      <div className="genre-buttons">
+      {/* <div className="genre-buttons">
 
         {genres.map((g) => (
         <Link
@@ -113,10 +114,11 @@ export default function Artists() {
           {g.genres}
         </Link>
         
+        
   ))}
+</div> */}
 
-
-</div>
+        </div>
     </div>
   );
 }

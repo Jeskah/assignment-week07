@@ -1,0 +1,16 @@
+.profiles-container {
+    display: grid;
+    grid-row: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+}
+
+.profile-card {
+    object-fit: contain;
+    width: 20em;
+    padding: 3em;
+}
+
+.profile-card:hover {
+    transform: scale(1.03);
+    transition: ease 275ms;
+}

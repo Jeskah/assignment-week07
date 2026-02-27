@@ -1,16 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import './profilecard.css';
 
 export default function ProfileCard({ artist }) {
     return (
+    <div className="profiles-container">
+<div className="profile-card">
         <Link
-        to={`/artists/${artist.id}`}    
+        to={`/artists/${artist.id}`} 
         style={{
             textDecoration: "none",
             color: "inherit",
-            border: "1px solid black",
             padding: "16px",
             margin: "12px",
-            borderRadius: "8px"
         }}>
             <h2>{artist.name}</h2>
             <p><strong>Year:</strong> {artist.year}</p>
@@ -24,5 +25,7 @@ export default function ProfileCard({ artist }) {
         </div>
 
         </Link>
+    </div>
+    </div>
     );
 }

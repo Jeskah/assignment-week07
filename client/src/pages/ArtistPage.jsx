@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BragBoard from "../components/BragBoard";
 import BASE_URL from "../config";
+import "./artistpage.css";
 
 export default function ArtistPage() {
 

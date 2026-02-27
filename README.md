@@ -1,5 +1,1 @@
-<!-- Hosting configuration issues. 
-
-needing a "history fallback"
-
-This is called needing a history fallback. -->
+Rewiring took a while and was stuck on page not refreshing for a long time.

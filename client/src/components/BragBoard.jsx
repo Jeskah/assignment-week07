@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import BASE_URL from "../config";
 
 export default function BragBoard({ artistId }) {
     const [messages, setMessages] = useState([]);
@@ -6,7 +7,7 @@ export default function BragBoard({ artistId }) {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        fetch(`https://brag-server.onrender.com/artists/${artistId}/messages`)
+        fetch(`${BASE_URL}/artists/${artistId}/messages`)
         .then(res => res.json())
         .then(data => setMessages(data))
         .catch(err => console.error(err));
@@ -16,7 +17,7 @@ export default function BragBoard({ artistId }) {
         e.preventDefault();
 
         const response = await fetch(
-            `https://brag-server.onrender.com${artistId}/messages`,
+            `${BASE_URL}${artistId}/messages`,
             {
                 method: "POST",
                 headers: {

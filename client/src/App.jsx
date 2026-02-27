@@ -4,9 +4,8 @@ import Genres from "./pages/Genres";
 import ArtistPage from "./pages/ArtistPage";
 
 export default function App() {
-
   return (
-<div>
+    <div>
 
 {/* GLOBAL */}
 
@@ -31,7 +30,8 @@ export default function App() {
         <Route path='/genres/:genreDefine' element={<Artists />} />
       </Routes>
 </div>
+
   );
-}
+};
 
 //you can 1 up someone

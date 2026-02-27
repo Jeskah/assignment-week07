@@ -3,18 +3,24 @@ import dotenv from "dotenv";
 import cors from "cors";
 import pg from "pg";
 
-const app = express();
 dotenv.config();
 
-// import path from 'path';
-
+const app = express();
 app.use(express.json());
 app.use(cors());
 
+// import path from 'path';
 
 const db = new pg.Pool({
     connectionString: process.env.DB_CONN,
 });
+
+db.connect()
+    .then(() => console.log("🔐 Database connected ! ✅"))
+    .catch(err => {
+        console.error("❌ DATABASE CONNECTION ERROR ❌");
+        process.exit(1); 
+    });
 
 app.get("/", (req, res) => {
     console.log("Server is running")
@@ -140,9 +146,15 @@ app.post("/artists/:id/messages", async (req, res) => {
 //     res.sendFile(path.join(__dirname, 'client/dist/index.html'));
 // });
 
+//dynamic port for render 7777 fallback
+const PORT = process.env.PORT || 7777;
+app.listen(PORT, () => {
+    console.log(`Server running on PORT ${PORT}`);
+});
+
 
 })
 
-app.listen(7777, () => {
-    console.log("server running on http://localhost:7777/")
-});
+// app.listen(7777, () => {
+//     console.log("server running on http://localhost:7777/")
+// });

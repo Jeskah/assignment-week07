@@ -1,6 +1,7 @@
 import ProfileCard from '../components/ProfileCard';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
+import BASE_URL from '../config';
 
 
 export default function Artists() {
@@ -13,8 +14,10 @@ export default function Artists() {
   useEffect(() => {
     const fetchArtists = async () => {
       try {      
-        let url = "https://brag-server.onrender.com/artists";
+        let url = `${BASE_URL}/artists`;
+
         let chosenGenre = genreDefine || selectedGenre;
+
         if (chosenGenre) {
           url += `?genre=${chosenGenre}`;
           
@@ -37,7 +40,7 @@ export default function Artists() {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-    const res = await fetch("https://brag-server.onrender.com/genres");
+    const res = await fetch(`${BASE_URL}/genres`);
     const genres = await res.json();
           setGenres(genres);
     } catch (err) {

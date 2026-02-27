@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 export default function ProfileCard({ artist }) {
     return (
         <Link
-            
         to={`/artists/${artist.id}`}    
         style={{
             textDecoration: "none",

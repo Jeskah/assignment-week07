@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BragBoard from "../components/BragBoard";
+import BASE_URL from "../config";
 
 export default function ArtistPage() {
 
@@ -10,7 +11,7 @@ export default function ArtistPage() {
     useEffect(() => {
     console.log("ID PARAM:", id);
 
-        fetch(`https://brag-server.onrender.com/artists/${id}`)
+        fetch(`${BASE_URL}/artists/${id}`)
         .then(res => res.json())
         .then(data => setArtist(data))
         .catch(err => console.error(err));

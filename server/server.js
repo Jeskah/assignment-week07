@@ -19,7 +19,7 @@ db.connect()
     .then(() => console.log("🔐 Database connected ! ✅"))
     .catch(err => {
         console.error("❌ DATABASE CONNECTION ERROR ❌");
-        process.exit(1); 
+        // process.exit(1); 
     });
 
 app.get("/", (req, res) => {
@@ -137,24 +137,10 @@ app.post("/artists/:id/messages", async (req, res) => {
         console.error(err);
         res.status(500).json({ error: "couldn't post brag"});
     }
-
-    // Serve static client files
-// app.use(express.static(path.join(__dirname, 'client/dist')));
-
-// // Catch-all: send index.html for React Router
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'client/dist/index.html'));
-// });
+});
 
 //dynamic port for render 7777 fallback
 const PORT = process.env.PORT || 7777;
 app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`);
 });
-
-
-})
-
-// app.listen(7777, () => {
-//     console.log("server running on http://localhost:7777/")
-// });

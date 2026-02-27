@@ -1,1 +1,21 @@
 /* @import "tailwindcss"; */
+
+.buttons {
+    display: flex;
+    padding: 2em;
+}
+
+.all-artists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.discover {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    gap: 1em;
+}

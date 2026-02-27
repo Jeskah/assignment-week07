@@ -1,13 +1,15 @@
 .profiles-container {
-    display: grid;
-    grid-row: 1fr 1fr 1fr;
-    flex-wrap: wrap;
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
 }
-
 .profile-card {
+    background-color: black;
+    justify-content: center;
     object-fit: contain;
     width: 20em;
-    padding: 3em;
+    padding: 2em;
+    text-align: left;
 }
 
 .profile-card:hover {

@@ -3,7 +3,7 @@ import './profilecard.css';
 
 export default function ProfileCard({ artist }) {
     return (
-    <div className="profiles-container">
+<div className="profiles-container">
 <div className="profile-card">
         <Link
         to={`/artists/${artist.id}`} 

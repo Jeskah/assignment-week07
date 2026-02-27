@@ -58,9 +58,13 @@ export default function Artists() {
     }, []);
 
   return (
-    <div>
+    <div className='artists-page'>
+
+      <div className='discover'>
       <h1>Discover...</h1>
 
+  <div className='genremore'>
+<div>
     <select onChange={(e) => setSelectedGenre(e.target.value)}>
       <option value="">All</option>
       <option value="Industrial">Industrial</option>
@@ -72,25 +76,36 @@ export default function Artists() {
       <option value="Trip-Hop">Trip-Hop</option>
       <option value="Chill">Chill</option>
     </select>
+</div>
+        
+        
 
+<div className='buttons'>
+  
+  <div className="genre-buttons">
+    {genres.slice(0, 5).map((g) => (
+      <Link
+        key={g.id}
+        to={`/genres/${encodeURIComponent(g.genres)}`}
+      >
 
-<div className="genre-buttons">
-  {genres.slice(0, 5).map((g) => (
-    <Link
-      key={g.id}
-      to={`/genres/${encodeURIComponent(g.genres)}`}
-    >
-      <button className="genre-btn">
-        {g.genres}
+          <button className="genre-btn">
+          {g.genres}
+        </button>
+      </Link>
+    ))}
+
+    <Link to="/genres">
+      <button className='see-more'>
+        See More →
       </button>
     </Link>
-  ))}
+  </div>
+</div>
 
-  <Link to="/genres">
-    <button className="genre-btn see-more">
-      See More →
-    </button>
-  </Link>
+
+</div>
+
 </div>
 
 <div className='all-artists'>
@@ -101,23 +116,6 @@ export default function Artists() {
         <ProfileCard key={artist.id} artist={artist} />
       ))
   )}
-
-
-      {/* <div className="genre-buttons">
-
-        {genres.map((g) => (
-        <Link
-          key={g.id}
-          to={`/genres/${g.genres}`}
-          className="genre-btn"
-        >
-          {g.genres}
-        </Link>
-        
-        
-  ))}
-</div> */}
-
         </div>
     </div>
   );

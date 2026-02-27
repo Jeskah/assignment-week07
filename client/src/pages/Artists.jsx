@@ -29,6 +29,8 @@ export default function Artists() {
       console.log("Fetched Artists:", artists);
       setArtists(artists);
 
+      console.log("BASE_URL:", BASE_URL);
+
       } catch (err) {
         console.error("Error fetching artists:", err);
       }

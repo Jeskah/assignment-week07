@@ -22,12 +22,15 @@ export default function Artists() {
           url += `?genre=${chosenGenre}`;
           
         }
+        
 
         const res = await fetch(url);
         const artists = await res.json();
 
-      console.log("Fetched Artists:", artists);
       setArtists(artists);
+      
+      console.log("Fetched Artists:", artists);
+      console.log("Param:", genreDefine);
 
       console.log("BASE_URL:", BASE_URL);
 

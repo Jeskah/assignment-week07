@@ -5,17 +5,26 @@
     padding: 2em;
 }
 
+.dropdown {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+select {
+    color: black;
+    border: solid black;
+    background-color: rgba(194, 184, 184, 0.123);
+    padding: 10px;
+    height: 3em;
+    width: 20em;
+    justify-content: center;
+    align-items: center;
+}
+
 .all-artists {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
-
-.discover {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-
+};

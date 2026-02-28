@@ -60,11 +60,9 @@ export default function Artists() {
   return (
     <div className='artists-page'>
 
-      <div className='discover'>
-      <h2>Discover...</h2>
 
-<div className='genre-select'>
 <div className='dropdown'>
+          <h2>Discover...</h2>
     <select onChange={(e) => setSelectedGenre(e.target.value)}>
       <option value="">All</option>
       <option value="Industrial">Industrial</option>
@@ -76,9 +74,7 @@ export default function Artists() {
       <option value="Trip-Hop">Trip-Hop</option>
       <option value="Chill">Chill</option>
     </select>
-</div>
-        
-        
+
 
 <div className='buttons'>
   
@@ -103,8 +99,6 @@ export default function Artists() {
   </div>
 </div>
 
-
-</div>
 
 </div>
 

@@ -1,8 +1,23 @@
 /* @import "tailwindcss"; */
 
-.buttons {
+.genre-btn {
     display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
     padding: 2em;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    width: 10em;
+    height: 2.5em;
+    background-color: black;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    border: none;
+    padding: em;
+    
 }
 
 .dropdown {

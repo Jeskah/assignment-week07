@@ -62,7 +62,6 @@ export default function Artists() {
 
 
 <div className='dropdown'>
-          <h2>Discover...</h2>
     <select onChange={(e) => setSelectedGenre(e.target.value)}>
       <option value="">All</option>
       <option value="Industrial">Industrial</option>
@@ -76,16 +75,14 @@ export default function Artists() {
     </select>
 
 
-<div className='buttons'>
-  
-  <div className='genre-btns'>
+  <div className="genre-btn">
     {genres.slice(0, 5).map((g) => (
       <Link
         key={g.id}
         to={`/genres/${encodeURIComponent(g.genres)}`}
       >
 
-          <button className="genre-btn">
+          <button>
           {g.genres}
         </button>
       </Link>
@@ -97,7 +94,7 @@ export default function Artists() {
       </button>
     </Link>
   </div>
-</div>
+
 
 
 </div>

@@ -4,7 +4,7 @@
     flex-direction: row;
 }
 .profile-card {
-    background-color: rgb(51, 46, 49);
+    background-color: rgba(53, 41, 48, 0.529);
     justify-content: center;
     object-fit: contain;
     width: 20em;

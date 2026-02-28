@@ -25,7 +25,7 @@ export default function App() {
 {/* PAGE - ARTISTS - DISCOVER */}
 
       <Routes>
-        <Route path='/' element={<p>Welcome to the home of all of you undiscovered favourites</p>} />
+        <Route path='/' element={""}/>
         <Route path='/artists' element={<Artists />} />
         <Route path='/genres' element={<Genres />} />
         <Route path="/artists/:id" element={<ArtistPage />} />

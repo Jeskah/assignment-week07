@@ -4,15 +4,22 @@
     flex-direction: row;
 }
 .profile-card {
-    background-color: black;
+    background-color: rgb(51, 46, 49);
     justify-content: center;
     object-fit: contain;
     width: 20em;
-    padding: 2em;
+    padding: 4em;
     text-align: left;
 }
 
 .profile-card:hover {
     transform: scale(1.03);
     transition: ease 275ms;
+}
+
+.genre-btn-card {
+    display: flex;
+    gap: 10px;
+    border: 1.5px white solid;
+    padding: 1em;
 }

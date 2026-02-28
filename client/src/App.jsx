@@ -2,16 +2,17 @@ import { Route, Routes, Link } from "react-router-dom"
 import Artists from "./pages/Artists";
 import Genres from "./pages/Genres";
 import ArtistPage from "./pages/ArtistPage";
+import BragLogo from './assets/brag.svg';
+import './App.css';
 
 export default function App() {
   return (
-    <div>
+<div className="app">
 
-{/* GLOBAL */}
-
-  <h1>
-    BRAG!
-  </h1>
+<div className="header">
+  <div>
+      <img src={BragLogo} className="brag-logo" />
+  </div>
 
   <nav>
       <Link to='/'>HOME</Link>
@@ -19,6 +20,7 @@ export default function App() {
       <Link to='/genres'>GENRES</Link>
       <Link to='/yourprofile'>YOUR PROFILE</Link>
   </nav>
+</div>
 
 {/* PAGE - ARTISTS - DISCOVER */}
 

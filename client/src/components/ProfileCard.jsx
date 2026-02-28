@@ -3,7 +3,9 @@ import './profilecard.css';
 
 export default function ProfileCard({ artist }) {
     return (
+
 <div className="profiles-container">
+
 <div className="profile-card">
         <Link
         to={`/artists/${artist.id}`} 
@@ -18,11 +20,12 @@ export default function ProfileCard({ artist }) {
             <p><strong>Rank:</strong> {artist.rank}</p>
             <p>{artist.bio}</p>
             
-        <div>
-            {artist.genres && artist.genres.map((genre, index) => (
-                <span key={index}>{genre}</span>
+        <div className="genre-btn-card">
+            {artist.genres && artist.genres.slice(0, 5).map((genre, index) => (
+                <span key={index}><strong>{genre}</strong></span>
             ))}
         </div>
+            
 
         </Link>
     </div>

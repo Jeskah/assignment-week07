@@ -27,6 +27,10 @@ button {
     
 }
 
+.brag-btn {
+    width: 30px;
+}
+
 .dropdown {
     padding-top: 2em;
     display: flex;

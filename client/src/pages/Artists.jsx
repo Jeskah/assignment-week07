@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import BASE_URL from '../config';
 import "./artists.css";
 
-
 export default function Artists() {
   
   const [artists, setArtists] = useState([]);
@@ -21,9 +20,7 @@ export default function Artists() {
 
         if (chosenGenre) {
           url += `?genre=${chosenGenre}`;
-          
-        }
-        
+        };
 
         const res = await fetch(url);
         const artists = await res.json();
@@ -58,7 +55,6 @@ export default function Artists() {
 
   return (
     <div className='artists-page'>
-
 
 <div className='dropdown'>
     <select onChange={(e) => setSelectedGenre(e.target.value)}>

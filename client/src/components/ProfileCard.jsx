@@ -10,6 +10,7 @@ console.log("ARTIST:", artist)
     return (
 <div className="profiles-container">
         <img src={artist.img_url} alt={artist.name}/>
+
 <div className="profile-card">
     <Link  to={`/artists/${artist.id}`} 
         style={{

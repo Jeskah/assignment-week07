@@ -3,6 +3,7 @@ import Artists from "./pages/Artists";
 import Genres from "./pages/Genres";
 import ArtistPage from "./pages/ArtistPage";
 import BragLogo from './assets/brag.svg';
+// import BraggedButton from "./components/BraggedButton";
 import './App.css';
 
 export default function App() {
@@ -13,7 +14,6 @@ export default function App() {
   <div>
       <img src={BragLogo} className="brag-logo" />
   </div>
-
   <nav>
       <Link to='/'>HOME</Link>
       <Link to='/artists'>ARTISTS</Link>

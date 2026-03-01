@@ -17,7 +17,7 @@ export default function BragBoard({ artistId }) {
         e.preventDefault();
 
         const response = await fetch(
-            `${BASE_URL}${artistId}/messages`,
+            `${BASE_URL}/artists/${artistId}/messages`,
             {
                 method: "POST",
                 headers: {

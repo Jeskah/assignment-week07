@@ -40,6 +40,7 @@ console.log("Well done artist route hit")
                 artists.bio, 
                 artists.year,
                 artists.rank,
+                artists.img_url,
                 COALESCE(
                 ARRAY_REMOVE(ARRAY_AGG(genres.genres), NULL),
                 '{}'

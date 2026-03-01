@@ -73,8 +73,12 @@ export default function Artists() {
       <option value="Trip-Hop">Trip-Hop</option>
       <option value="Chill">Chill</option>
     </select>
+  </div>
 
 
+
+
+<div className="genre-row">
   <div className="genre-btn">
     {genres.slice(0, 5).map((g) => (
       <Link
@@ -93,7 +97,7 @@ export default function Artists() {
         See More →
       </button>
     </Link>
-  </div>
+</div>
 
 
 

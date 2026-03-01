@@ -1,8 +1,15 @@
-/* @import "tailwindcss"; */
+.all-artists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: space-evenly;
+}
 
 .genre-btn {
+    color: rgb(175, 164, 175);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 20px;
     padding: 2em;
 }
@@ -16,30 +23,26 @@ button {
     text-transform: uppercase;
     font-size: 0.6em;
     border: none;
-    padding: em;
+    padding: 1.5em;
     
 }
 
 .dropdown {
+    padding-top: 2em;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
 }
+
 
 select {
-    color: black;
-    border: solid black;
-    background-color: rgba(194, 184, 184, 0.123);
-    padding: 10px;
-    height: 3em;
-    width: 20em;
-    justify-content: center;
-    align-items: center;
+    height: 4em;
+    font-size: 8pt;
+    background-color: rgba(0, 0, 0, 0.159);
+    width: 13em;
+    padding: 1em;
+    border-radius: 2px;
 }
 
-.all-artists {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-};
+.see-more{
+    width: 15em;
+}

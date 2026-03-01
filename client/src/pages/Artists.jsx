@@ -30,10 +30,9 @@ export default function Artists() {
 
       setArtists(artists);
       
-      console.log("Fetched Artists:", artists);
-      console.log("Param:", genreDefine);
-
-      console.log("BASE_URL:", BASE_URL);
+      // console.log("Fetched Artists:", artists);
+      // console.log("Param:", genreDefine);
+      // console.log("BASE_URL:", BASE_URL);
 
       } catch (err) {
         console.error("Error fetching artists:", err);

@@ -5,15 +5,13 @@ export default function ProfileCard({ artist }) {
     
 console.log("CARD DATA:", artist);
 console.log("ARTIST:", artist)
-console.log(JSON.stringify(artist, null, 2));
+// console.log(JSON.stringify(artist, null, 2));
 
     return (
-<div className="profiles-container"> 
-                <img src={artist.img_url} alt={artist.name}/>
+<div className="profiles-container">
+        <img src={artist.img_url} alt={artist.name}/>
 <div className="profile-card">
-    <Link
-        
-        to={`/artists/${artist.id}`} 
+    <Link  to={`/artists/${artist.id}`} 
         style={{
             textDecoration: "none",
             color: "inherit",

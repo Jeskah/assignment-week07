@@ -10,8 +10,8 @@ export default function ArtistPage() {
     const [artist, setArtist] = useState(null);
 
     useEffect(() => {
-    console.log("ID PARAM:", id);
-    console.log("Fetched Artists:", id.map(a => a.img_url));
+    // console.log("ID PARAM:", id);
+    // console.log("Fetched Artists:", id.map(a => a.img_url));
 
         fetch(`${BASE_URL}/artists/${id}`)
         .then(res => res.json())

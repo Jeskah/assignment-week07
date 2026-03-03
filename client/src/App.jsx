@@ -2,7 +2,7 @@ import { Route, Routes, Link } from "react-router-dom"
 import Artists from "./pages/Artists";
 import Genres from "./pages/Genres";
 import ArtistPage from "./pages/ArtistPage";
-import BragLogo from './assets/brag.svg';
+import BragLogo from './assets/brag.png';
 // import BraggedButton from "./components/BraggedButton";
 import './App.css';
 

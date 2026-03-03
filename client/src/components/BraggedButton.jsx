@@ -1,30 +1,31 @@
 import { useState } from "react";
-import selectedIcon from "../assets/xselected.svg";
-import unselectedIcon from "../assets/xunselected.svg";
+import XSelected from "../assets/x.svg";
+import XunSelected from "../assets/xstroke.svg";
 
 export default function BragButton() {
-  const [isSelected, setIsSelected] = useState(false);
+const [isSelected, setIsSelected] = useState(!true);
 
-  const toggleSelected = () => {
+const toggleSelected = () => {
     setIsSelected(prev => !prev);
-  };
+};
 
-  return (
+return (
     <button 
-      onClick={toggleSelected}
-      style={{
+    onClick={toggleSelected}
+    style={{
         background: "none",
         border: "none",
         cursor: "pointer",
         padding: 0
-      }}
+    }}
     >
-      <img 
-        src={isSelected ? selectedIcon : unselectedIcon} 
+
+    <img 
+        src={isSelected ? XSelected : XunSelected} 
         alt="brag button"
         width="24"
         height="24"
-      />
+    />
     </button>
-  );
+);
 }

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import './profilecard.css';
+import BragButton from "./BraggedButton";
 
 export default function ProfileCard({ artist }) {
     
@@ -12,7 +13,7 @@ console.log("ARTIST:", artist)
         <img src={artist.img_url} alt={artist.name}/>
 
 <div className="profile-card">
-    <Link  to={`/artists/${artist.id}`} 
+    <Link to={`/artists/${artist.id}`} 
         style={{
             textDecoration: "none",
             color: "inherit",
@@ -25,8 +26,10 @@ console.log("ARTIST:", artist)
             <p><strong>Rank:</strong> {artist.rank}</p>
             <p className="bio">{artist.bio?.split(" ").slice(0, 15).join(" ")}...</p>
         </div>
+
+        <BragButton />
+
     </Link>
-            
         <div className="genre-btn-card">
             {artist.genres && artist.genres.slice(0, 5).map((genre, index) => (
                 <div key={index}
